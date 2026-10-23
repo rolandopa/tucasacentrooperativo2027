@@ -1,0 +1,92 @@
+@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  color-scheme: light;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: 'Plus Jakarta Sans', Inter, system-ui, sans-serif;
+  background-color: #E8F1F8;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Light gradient base */
+.bg-command-center {
+  background: linear-gradient(135deg, #E8F1F8 0%, #DCE8F3 35%, #F0F5FA 70%, #E8F1F8 100%);
+}
+
+/* Tech grid overlay — subtle blue on light */
+.bg-tech-grid {
+  background-image:
+    linear-gradient(rgba(2, 132, 199, 0.05) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(2, 132, 199, 0.05) 1px, transparent 1px);
+  background-size: 56px 56px;
+}
+
+/* Ambient soft lighting */
+.bg-ambient-neon {
+  background:
+    radial-gradient(ellipse 60% 50% at 15% 20%, rgba(0, 194, 232, 0.10), transparent 70%),
+    radial-gradient(ellipse 55% 45% at 85% 30%, rgba(139, 92, 246, 0.08), transparent 70%),
+    radial-gradient(ellipse 50% 40% at 50% 90%, rgba(255, 103, 31, 0.06), transparent 70%);
+}
+
+/* Glassmorphism card — light variant */
+.glass-card {
+  background: rgba(255, 255, 255, 0.75);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(148, 163, 184, 0.25);
+  box-shadow: 0 1px 3px rgba(15, 23, 42, 0.04), 0 8px 24px -12px rgba(15, 23, 42, 0.08);
+}
+
+.glass-card:hover {
+  border-color: rgba(148, 163, 184, 0.4);
+}
+
+/* Glowing text */
+.glow-text {
+  text-shadow: 0 0 24px rgba(0, 194, 232, 0.2);
+}
+
+/* Shimmer badge — darker colors for light theme */
+.shimmer-text {
+  background: linear-gradient(90deg, #0284C7, #0C4A6E, #0284C7);
+  background-size: 200% auto;
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: shimmer 3s linear infinite;
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+::-webkit-scrollbar-track {
+  background: #E8F1F8;
+}
+::-webkit-scrollbar-thumb {
+  background: rgba(2, 132, 199, 0.25);
+  border-radius: 4px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(2, 132, 199, 0.45);
+}
+
+/* Line clamp utility */
+.line-clamp-2 {
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
