@@ -1,6 +1,5 @@
 import Navbar from '@/components/Navbar';
 import Hero from '@/components/Hero';
-import StatsBar from '@/components/StatsBar';
 import ModulesGrid from '@/components/ModulesGrid';
 import Footer from '@/components/Footer';
 import ToastContainer, { type ToastData } from '@/components/Toast';
@@ -36,7 +35,6 @@ function App() {
       <div className="relative z-10 flex min-h-screen flex-col">
         <Navbar />
         <Hero />
-        <StatsBar />
         <main className="mx-auto w-full max-w-7xl flex-1 px-4 pt-12 md:pt-16">
           <ModulesGrid modules={operationalModules} onPendingClick={showPendingToast} />
         </main>

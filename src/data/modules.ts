@@ -156,12 +156,11 @@ export const operationalModules: OperationalModule[] = [
     category: 'Aplicativo Web',
     description:
       'Acceso directo a la suite interactiva de herramientas de gestión y servicios Tu Casa.',
-    link: 'https://apptucasa.netlify.app/',
+    link: 'https://apptucasa2027.vercel.app/',
     theme: 'violet',
     iconName: 'Smartphone',
     imageOnly: 'https://i.ibb.co/0pPMVd6W/1eaf0217-6c91-4128-bbff-5b2c8601173f.jpg',
     cardBg: '#ffffff',
-    requiresPassword: true,
   },
   {
     id: 'cuida',
@@ -196,7 +195,7 @@ export const operationalModules: OperationalModule[] = [
     category: 'Sitio Institucional',
     description:
       'Acceso directo al portal web institucional Tu Casa con información, servicios y novedades del programa.',
-    link: 'https://tucasarionegro.netlify.app/',
+    link: 'https://webtucasa.vercel.app/',
     theme: 'cyan',
     iconName: 'Globe',
     imageOnly: 'https://i.ibb.co/CKm626ZM/descarga-1.png',

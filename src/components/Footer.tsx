@@ -1,4 +1,4 @@
-import { Building2, HeartHandshake, Headphones, Mail, Users, Home } from 'lucide-react';
+import { Building2, HeartHandshake, Headphones, Mail, Users } from 'lucide-react';
 
 const LOGO_URL = 'https://i.ibb.co/CKm626ZM/descarga-1.png';
 

@@ -1,0 +1,8 @@
+{
+  "name": "Plataforma Operativa Tu Casa",
+  "description": "Centro de Mando - Ecosistema unificado de captura de datos, geolocalización en tiempo real, seguimiento clínico-social y articulación territorial.",
+  "permissions": [],
+  "capabilities": [
+    "MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"
+  ]
+}
