@@ -15,6 +15,8 @@ export interface OperationalModule {
   cardBg?: string;
   /** If true, the card asks for a password before opening the destination link. */
   requiresPassword?: boolean;
+  /** Specific password required if different from default. */
+  password?: string;
 }
 
 export type ModuleIconName =
@@ -135,6 +137,7 @@ export const operationalModules: OperationalModule[] = [
     imageOnly: 'https://i.ibb.co/cK5zTsK1/logo-RED.png',
     cardBg: '#ffffff',
     requiresPassword: true,
+    password: 'rionegro*2027',
   },
   {
     id: 'mapa-tactico',
@@ -161,6 +164,8 @@ export const operationalModules: OperationalModule[] = [
     iconName: 'Smartphone',
     imageOnly: 'https://i.ibb.co/0pPMVd6W/1eaf0217-6c91-4128-bbff-5b2c8601173f.jpg',
     cardBg: '#ffffff',
+    requiresPassword: true,
+    password: 'tucasa*2027',
   },
   {
     id: 'cuida',

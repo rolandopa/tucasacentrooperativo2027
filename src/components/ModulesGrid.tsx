@@ -39,7 +39,7 @@ export default function ModulesGrid({ modules, onPendingClick }: ModulesGridProp
       <PasswordGate
         open={gatedModule !== null}
         moduleTitle={gatedModule?.title ?? ''}
-        password="rionegro*2027"
+        password={gatedModule?.password ?? 'rionegro*2027'}
         onSuccess={handleGateSuccess}
         onCancel={() => setGatedModule(null)}
       />

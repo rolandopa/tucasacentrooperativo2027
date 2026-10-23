@@ -42,7 +42,7 @@ export default function PasswordGate({
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    if (value === password) {
+    if (value === password || value.trim() === password.trim()) {
       setError(false);
       onSuccess();
     } else {
