@@ -17,6 +17,8 @@ export interface OperationalModule {
   requiresPassword?: boolean;
   /** Specific password required if different from default. */
   password?: string;
+  /** If provided, clicking the card opens an image popup modal with this image URL. */
+  popupImage?: string;
 }
 
 export type ModuleIconName =
@@ -146,11 +148,12 @@ export const operationalModules: OperationalModule[] = [
     category: 'Geolocalización GPS',
     description:
       'Monitoreo satelital activo, rutas de patrullaje y despliegue territorial de gestores en vivo.',
-    link: 'https://www.followmee.com/login.aspx',
+    link: 'https://ibb.co/m5Mpm2cQ',
     theme: 'orange',
     iconName: 'Radar',
     imageOnly: 'https://i.ibb.co/GQKwqtHJ/d2994071-2d83-4b57-a2bb-8c5126fb05bd.jpg',
     cardBg: '#ffffff',
+    popupImage: 'https://i.ibb.co/qYP6zcrb/ESQUEMA-OPERATIVO-EQUIPO-DE-CALLE.png',
   },
   {
     id: 'tu-casa-app',

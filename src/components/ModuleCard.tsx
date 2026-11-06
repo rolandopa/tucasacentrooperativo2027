@@ -1,4 +1,4 @@
-import { ArrowUpRight, Database, Activity, Radar, Smartphone, ShieldAlert, Siren, Globe, Lock } from 'lucide-react';
+import { ArrowUpRight, Database, Activity, Radar, Smartphone, ShieldAlert, Siren, Globe, Lock, ZoomIn } from 'lucide-react';
 import type { CSSProperties } from 'react';
 import type { OperationalModule, ModuleTheme } from '@/data/modules';
 import { themeConfig } from '@/data/modules';
@@ -18,9 +18,16 @@ interface ModuleCardProps {
   index: number;
   onPendingClick: (moduleName: string) => void;
   onGatedClick: (module: OperationalModule) => void;
+  onPopupClick: (module: OperationalModule) => void;
 }
 
-export default function ModuleCard({ module, index, onPendingClick, onGatedClick }: ModuleCardProps) {
+export default function ModuleCard({
+  module,
+  index,
+  onPendingClick,
+  onGatedClick,
+  onPopupClick,
+}: ModuleCardProps) {
   const theme = themeConfig[module.theme as ModuleTheme];
   const Icon = iconMap[module.iconName];
 
@@ -30,9 +37,10 @@ export default function ModuleCard({ module, index, onPendingClick, onGatedClick
     }
   };
 
-  const isPending = module.link === null;
+  const isPending = module.link === null && !module.popupImage;
   const isImageOnly = Boolean(module.imageOnly);
   const isGated = Boolean(module.requiresPassword) && module.link !== null;
+  const hasPopup = Boolean(module.popupImage);
 
   /* ── Image-only card (RED & CUIDA) ── */
   if (isImageOnly) {
@@ -67,6 +75,24 @@ export default function ModuleCard({ module, index, onPendingClick, onGatedClick
           className={`${baseImgClass} cursor-pointer`}
           style={cardStyle}
           aria-label={`Abrir ${module.title}`}
+        >
+          <img
+            src={module.imageOnly!}
+            alt={module.title}
+            className="h-full w-full flex-1 object-contain p-4"
+            style={{ minHeight: '200px' }}
+          />
+        </button>
+      );
+    }
+
+    if (hasPopup) {
+      return (
+        <button
+          onClick={() => onPopupClick(module)}
+          className={`${baseImgClass} cursor-pointer`}
+          style={cardStyle}
+          aria-label={`Ver ${module.title}`}
         >
           <img
             src={module.imageOnly!}
@@ -121,6 +147,8 @@ export default function ModuleCard({ module, index, onPendingClick, onGatedClick
           >
             {isPending ? (
               <Lock className="h-4 w-4" />
+            ) : hasPopup ? (
+              <ZoomIn className="h-4 w-4 transition-transform duration-300 group-hover:scale-110" />
             ) : (
               <ArrowUpRight className="h-4 w-4 transition-transform duration-300 group-hover:-translate-y-0.5 group-hover:translate-x-0.5" />
             )}
@@ -182,6 +210,19 @@ export default function ModuleCard({ module, index, onPendingClick, onGatedClick
         className={`${baseClass} text-left cursor-pointer`}
         style={{ animationDelay: `${index * 80}ms` }}
         aria-label={`Abrir ${module.title}`}
+      >
+        {cardContent}
+      </button>
+    );
+  }
+
+  if (hasPopup) {
+    return (
+      <button
+        onClick={() => onPopupClick(module)}
+        className={`${baseClass} text-left cursor-pointer`}
+        style={{ animationDelay: `${index * 80}ms` }}
+        aria-label={`Ver ${module.title}`}
       >
         {cardContent}
       </button>

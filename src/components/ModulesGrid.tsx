@@ -2,6 +2,7 @@ import { useState, useCallback } from 'react';
 import type { OperationalModule } from '@/data/modules';
 import ModuleCard from './ModuleCard';
 import PasswordGate from './PasswordGate';
+import ImageModal from './ImageModal';
 
 interface ModulesGridProps {
   modules: OperationalModule[];
@@ -10,9 +11,14 @@ interface ModulesGridProps {
 
 export default function ModulesGrid({ modules, onPendingClick }: ModulesGridProps) {
   const [gatedModule, setGatedModule] = useState<OperationalModule | null>(null);
+  const [popupModule, setPopupModule] = useState<OperationalModule | null>(null);
 
   const handleGatedClick = useCallback((module: OperationalModule) => {
     setGatedModule(module);
+  }, []);
+
+  const handlePopupClick = useCallback((module: OperationalModule) => {
+    setPopupModule(module);
   }, []);
 
   const handleGateSuccess = useCallback(() => {
@@ -32,6 +38,7 @@ export default function ModulesGrid({ modules, onPendingClick }: ModulesGridProp
             index={index}
             onPendingClick={onPendingClick}
             onGatedClick={handleGatedClick}
+            onPopupClick={handlePopupClick}
           />
         ))}
       </div>
@@ -42,6 +49,14 @@ export default function ModulesGrid({ modules, onPendingClick }: ModulesGridProp
         password={gatedModule?.password ?? 'rionegro*2027'}
         onSuccess={handleGateSuccess}
         onCancel={() => setGatedModule(null)}
+      />
+
+      <ImageModal
+        open={popupModule !== null}
+        title={popupModule?.title ?? 'Esquema Operativo'}
+        subtitle={popupModule?.subtitle}
+        imageUrl={popupModule?.popupImage ?? ''}
+        onClose={() => setPopupModule(null)}
       />
     </>
   );
