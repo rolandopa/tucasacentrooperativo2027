@@ -173,14 +173,14 @@ export const operationalModules: OperationalModule[] = [
   {
     id: 'cuida',
     title: 'CUIDA',
-    subtitle: 'Canal Crítico',
+    subtitle: 'Canal de Unificación e Intervención',
     category: 'Canal Crítico',
     description:
-      'Ruta de atención prioritaria y respuesta rápida ante contingencias sociales y habitanza en calle.',
+      'Canal de Unificación e Intervención para el Desarrollo, Atención y Cuidado de la casa común.',
     link: null,
     theme: 'rose',
     iconName: 'ShieldAlert',
-    imageOnly: 'https://i.ibb.co/QvZm9sBb/5d802040-9082-47d6-8d3c-005b53f6c847.jpg',
+    imageOnly: '/assets/aistudio/5d802040-9082-47d6-8d3c-005b53f6c847_1840332f.jpg',
     cardBg: '#ffffff',
   },
   {
